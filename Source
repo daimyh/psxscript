@@ -1,0 +1,28 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-library/main/source.lua"))()
+local Window = library.CreateLib("Pet Simulator X", "Ocean")
+
+-- Coins
+local CoinsDiamondsTab = Window:NewTab("Coins And Diamonds")
+local CoinsDiamondsTabSection = CoinsDiamondsTab:NewSection("Coins And Dimaonds Spawner")
+CoinsDiamondsTabSection:NewTextBox("Amount of Diamonds!", "Spawns Diamonds", function(txt)
+	local player = Game:GetService("Players").LocalPlayer
+	
+	player.PlayerGui.Main.Right.Diamonds.Amount.Text = txt
+	player.leaderstats.Diamonds.Value = txt
+end)
+CoinsDiamondsTabSection:NewTextBox("Amount of Coins!", "Spawns Coins", function(txt)
+	local player = Game:GetService("Players").LocalPlayer
+
+	player.PlayerGui.Main.Right.Coins.Amount.Text = txt
+end)
+CoinsDiamondsTabSection:NewButton("Add 1B Diamonds", "Adds 1B Diamonds to the user.", function()
+  	local player = Game:GetService("Players").LocalPlayer
+	
+	player.PlayerGui.Main.Right.Diamonds.Amount.Text = "1B"
+	player.leaderstats.Diamonds.Value = 1000000000
+end)
+CoinsDiamondsTabSection:NewButton("Add 1B Coins", "Adds 1B Coins to the user.", function()
+  	local player = Game:GetService("Players").LocalPlayer
+	
+	player.PlayerGui.Main.Right.Coins.Amount.Text = "1B"
+end)
